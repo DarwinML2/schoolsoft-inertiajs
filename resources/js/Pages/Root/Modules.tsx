@@ -1,53 +1,46 @@
 import { List } from "@/Components/root/List";
 import { MaxWidthSection } from "@/Components/root/MaxWidthSection";
+import i18n from "@/lib/i18next";
 import { Head } from "@inertiajs/react";
 import { BadgeInfo, BriefcaseBusiness, FileCheck, NotebookPen, PieChart } from "lucide-react";
+import { useTranslation } from "react-i18next";
+i18n.setDefaultNamespace("home");
+const { t } = i18n;
 const modules = [
   {
-    title: "Información de estudiantes",
-    description: `Record del estudiante, padre, madre encargado, maestros, vacunas, enfermedades,
-      impedimentos, rematricula, salón hogar, control de data, índices, búsqueda de record, socio
-      económico, médico, totales por grado, lista de cuentas, informe de direcciones, lista de
-      teléfonos, lista de trabajo, lista de padres, informe de estudiantes nuevo, lista de
-      descuentos, etiquetas, carta certificada y variedad de informes.`,
+    title: t("modules.items.0.title"),
+    description: t("modules.items.0.description"),
     Icon: BadgeInfo,
   },
   {
-    title: "Sistema de notas",
-    description: `Catálogo de cursos, materias, programa especiales, entrada de notas y conductas por
-      trimestre, registro del maestro, calcular notas trimestrales y semestrales, méritos,
-      deméritos, fracasados, talis, rangos, promedios trimestrales, notas de verano, tarjetas de
-      notas, pantalla de comentario para la tarjeta, mensajes para la tarjeta, programa de clase,
-      distribución de notas, registro de notas, acumulativa y variedad de informes.`,
+    title: t("modules.items.1.title"),
+    description: t("modules.items.1.description"),
     Icon: NotebookPen,
   },
   {
-    title: "Registro electrónico",
-    description: `Entrada de notas de trabajos diarios, proyectos, trabajo de libreta, examenes, conductas
-      trimestrales, promedios trimestral, semestral, finales, asistencia trimestral, planes
-      diarios, variedad de informes.`,
+    title: t("modules.items.2.title"),
+    description: t("modules.items.2.description"),
     Icon: BriefcaseBusiness,
   },
   {
-    title: "Cuentas a Cobrar",
-    description: `Presupuesto, costos, descuentos, pantalla de pagos, recargos, libreta de pago, lista de
-      deudores, estado de cuenta, Pagos diarios, crea diferentes carta de cobre, inf. 30-60-90,
-      recibo y variedad de informes.`,
+    ttitle: t("modules.items.3.title"),
+    description: t("modules.items.3.description"),
     Icon: PieChart,
   },
   {
-    title: "Sistema de Iglesias",
-    description: `Certificados de Matrimonio, Bautismo Comunion, Negativa, Confirmación y Notificación Ect.`,
+    title: t("modules.items.4.title"),
+    description: t("modules.items.4.description"),
     Icon: FileCheck,
   },
 ];
 export default function Page() {
+  const { t } = useTranslation("home");
   return (
     <>
       <Head title="Modulos" />
       <MaxWidthSection>
         <div className="cointainer mx-auto max-w-4xl">
-          <h2 className="title">Modulos</h2>
+          <h2 className="title">{t("modules.title")}</h2>
           <List items={modules} />
         </div>
       </MaxWidthSection>
